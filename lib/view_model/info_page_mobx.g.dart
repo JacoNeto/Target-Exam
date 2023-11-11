@@ -41,6 +41,14 @@ mixin _$InfoPageMobx on InfoPageMobxBase, Store {
     });
   }
 
+  late final _$loadSavedInfoAsyncAction =
+      AsyncAction('InfoPageMobxBase.loadSavedInfo', context: context);
+
+  @override
+  Future<void> loadSavedInfo() {
+    return _$loadSavedInfoAsyncAction.run(() => super.loadSavedInfo());
+  }
+
   late final _$InfoPageMobxBaseActionController =
       ActionController(name: 'InfoPageMobxBase', context: context);
 

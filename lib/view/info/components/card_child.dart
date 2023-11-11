@@ -13,17 +13,26 @@ class CardChild extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       children: [
-        Expanded(child: Text(label)),
-        IconButton(
-          onPressed: onEditPressed,
-          icon: const Icon(Icons.edit),
+        Row(
+          children: [
+            Expanded(
+                child: Padding(
+              padding: const EdgeInsets.only(left: 18.0),
+              child: Text(label),
+            )),
+            IconButton(
+              onPressed: onEditPressed,
+              icon: const Icon(Icons.edit),
+            ),
+            IconButton(
+              onPressed: onDeletePressed,
+              icon: const Icon(Icons.delete),
+            )
+          ],
         ),
-        IconButton(
-          onPressed: onDeletePressed,
-          icon: const Icon(Icons.delete),
-        )
+        const Divider()
       ],
     );
   }

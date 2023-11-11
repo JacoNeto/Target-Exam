@@ -24,6 +24,12 @@ class _InfoPageState extends State<InfoPage> {
   final _focusNode = FocusNode();
 
   @override
+  void initState() {
+    _infoPageMobX.loadSavedInfo();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -47,17 +53,22 @@ class _InfoPageState extends State<InfoPage> {
                                 itemBuilder: (_, index) {
                                   var info = _infoPageMobX.infos[index];
                                   return CardChild(
-                                    label: info.text,
+                                    label: info.text ?? "",
                                     onEditPressed: () {
                                       _infoPageMobX.selectedInfo = info;
-                                      _textEditingController.text = info.text;
+                                      _textEditingController.text =
+                                          info.text ?? "";
+                                      _focusNode.requestFocus();
                                     },
-                                    onDeletePressed: () => DialogHandler
-                                        .showDeleteConfirmationDialog(context,
-                                            onPressed: () {
-                                      _infoPageMobX.removeInfo(info);
-                                      Navigator.of(context).pop();
-                                    }),
+                                    onDeletePressed: () {
+                                      _focusNode.nextFocus();
+                                      DialogHandler
+                                          .showDeleteConfirmationDialog(context,
+                                              onPressed: () {
+                                        _infoPageMobX.removeInfo(info);
+                                        Navigator.of(context).pop();
+                                      });
+                                    },
                                   );
                                 }),
                           )),

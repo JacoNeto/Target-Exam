@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:target/view/login/components/decoration.dart';
+import 'package:target/utils/shared_widgets/decoration.dart';
 
 class PasswordFormField extends StatelessWidget {
   const PasswordFormField({super.key, this.onChanged});
@@ -34,7 +34,7 @@ class PasswordFormField extends StatelessWidget {
         maxLength: 20,
         decoration: InputDecoration(
             label: const Text(
-              "Senha*",
+              "Senha",
             ),
             contentPadding: const EdgeInsets.all(12),
             enabledBorder: customEnabledBorder,

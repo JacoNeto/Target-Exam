@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:target/view/login/components/decoration.dart';
+import 'package:target/utils/shared_widgets/decoration.dart';
 
 class DefaultTextFormField extends StatelessWidget {
   const DefaultTextFormField({
@@ -48,7 +48,10 @@ class DefaultTextFormField extends StatelessWidget {
         validator: defaultValidator
             ? (value) {
                 if (value == null || value.isEmpty) {
-                  return "${label.substring(0, label.length - 1)} faltando";
+                  return "$label faltando";
+                }
+                if (value[value.length - 1] == ' ') {
+                  return "Por favor, remova o(s) espaço(s) do final";
                 }
                 return null;
               }

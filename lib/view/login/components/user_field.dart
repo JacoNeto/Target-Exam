@@ -12,8 +12,8 @@ class UserFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTextFormField(
       initialValue: initialValue,
-      label: "Usuário*",
-      defaultValidator: false,
+      label: "Usuário",
+      defaultValidator: true,
       textInputAction: TextInputAction.next,
       prefixIcon: const Icon(Icons.person),
       maxLength: 20,
