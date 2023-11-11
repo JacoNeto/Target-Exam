@@ -1,6 +1,6 @@
 # target
 
-A new Flutter project.
+Author: Jacó Gonzaga Brasil Neto
 
 ## Getting Started
 
